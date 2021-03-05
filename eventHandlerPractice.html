@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event Handler Practice</title>
+	
+
+</head>
+<body style="background-color: white; color: black;">
+	<h1>Event Handlers At Work!</h1>
+	<h2>By Jeremy Hunton</h2>
+
+	<li id="searchHere" style = "list-style-type: lower-alpha;"> <a href="http://www.google.com">Search Here</a></li>
+	
+	<li style="list-style-type: lower-alpha;"><button id="clickMe">Click Me</button></li>
+
+	<li style="list-style-type: lower-alpha;">My name is <input type="text" value="Sam" id="nameBox"> Go ahead, change my name.</li>
+
+	<li style="list-style-type: lower-alpha;"><button id="reload">Reload</button></li>
+
+	<li style="list-style-type: lower-alpha;"><button id="favSite">My Favorite Site</button></li>
+
+	<script type="text/javascript">
+		let searchHere = document.getElementById("searchHere");
+		let clickMe = document.getElementById("clickMe");
+		let nameBox = document.getElementById("nameBox");
+		let reload = document.getElementById("reload");
+		let favSite = document.getElementById("favSite");
+		let favWebLink = "https://github.com/HunJer93";
+		//function green background turns the background color green
+		function greenBackground(){
+			document.body.style.backgroundColor= "green";
+		}//end greenBackground
+
+		//function whiteBackground turns the background color white
+		function whiteBackground(){
+			document.body.style.backgroundColor = "white";
+		}//end  whiteBackground
+
+		//function popUp opens a pop up message
+		function popUp(){
+			window.alert("You clicked the button!");
+		}//end clickMe
+
+		//function nameChange sends a pop up when the name is changed in nameBox
+		function nameChange(){
+			alert("Name was changed to: " + nameBox.value);
+		}//end nameDefault
+
+		//function reloadPage reloads the web page
+		function reloadPage(){
+			location.reload();
+		}//end function reloadPage
+
+		//function openFavSite opens my favorite website in a new page!
+		function openFavSite(){
+			window.open(favWebLink);
+		}//end openFavSite
+
+		//event register for searchHere mouseover green background and white when not the focus
+		searchHere.addEventListener("mouseenter", greenBackground, false);
+		searchHere.addEventListener("mouseleave", whiteBackground, false);
+		//event register for clickMe
+		clickMe.addEventListener("click", popUp, false); 
+		//event register for changing name and clicking outside of the nameBox
+		nameBox.addEventListener("blur", nameChange, false);
+		//event register for reloading the web page
+		reload.addEventListener("click", reloadPage, false);
+		//event register for opening favorite web site
+		favSite.addEventListener("click", openFavSite, false);
+	</script>
+</body>
+</html>
